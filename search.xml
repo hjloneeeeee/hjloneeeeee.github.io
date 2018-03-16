@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Termux搭建Hexo博客]]></title>
+    <url>%2F2018%2F03%2F16%2Ftermux-hexo%2F</url>
+    <content type="text"><![CDATA[Termux依赖Android5.0及更高版本，无需root。组合了强大的终端模拟和拓展Linux包收集支持。Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。本文将介绍如何使用Termux搭建Hexo博客。 安装TermuxTermux官网 在F-droid下载安装包即可 安装完成后执行（右滑长按KEYBOARD显示功能键）123$ apt update$ apt-get upgrade$ apt upgrade 安装node.js、git、hexo 执行以下命令123$ apt install nodejs$ apt install git$ npm install -g hexo-cli 搭建博客 执行以下命令初始化Hexo 123$ hexo init &lt;folder&gt; # 在指定文件夹生成相关文件$ cd &lt;folder&gt;$ npm install 指定文件夹目录如下图（命令 $ ls 查看文件夹目录） 执行以下命令，然后在浏览器输入localhost:4000查看，若出现下图则说明成功了12$ hexo g$ hexo s 部署博客到Github 在Github上新建项目，项目名称必须为 用户名.github.io 返回Termux，修改配置文件_config.yml $ vi _config.yml ，拉到最下面，将#Deployment改成以下代码（注意每个冒号后面需加一个空格） 1234deploy: type: git repository: https://github.com/用户名/用户名.github.io.git # 将&apos;用户名&apos;改为你的Github用户名 branch: master 安装插件 $ npm install hexo-deployer-git --save 部署到Github $ hexo d 在浏览器输入 https://用户名.github.io 即可访问你的博客 发表文章 使用命令 $ hexo new &quot;name&quot; 新建文章文件，文件会以name.md为名新建在blog/source/_posts/下 文章编辑完成后，执行以下命令发表12$ hexo g$ hexo d 更多 Hexo更多配置可查看官方文档 主题]]></content>
+      <categories>
+        <category>教程</category>
+      </categories>
+      <tags>
+        <tag>termux</tag>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Python学习笔记(1)---GUI编程(wxPython)]]></title>
     <url>%2F2018%2F03%2F15%2Fpython%E7%AC%94%E8%AE%B0%2F</url>
     <content type="text"><![CDATA[wxPython是Python的的GUI图形库，允许开发者很方便的创建GUI用户界面。wxPython是作为优秀的跨平台开源GUI库wxWidgets（C++）的Python封装和Python模块的方式提供给用户的。 安装wxPython库 $ pip install -U wxPython 创建一个GUI应用 导入wx模块 定义一个应用程序对象 创建wx.Frame主窗口对象，设置窗口标题和大小 加入Panel对象管理控件布局 添加一个SaticText静态文本对象，在指定位置显示”Hello,world!” 通过Frame的show()方法显示窗体 进入应用程序事件主循环 123456789# -*- coding:utf-8 -*-import wxapp = wx.App()window = wx.Frame(None, title = "一个APP", size = (300, 200))panel = wx.Panel(window)label = wx.StaticText(panel, label = "Hello, world!", pos = (100, 50))window.Show(True)app.MainLoop()]]></content>
@@ -10,14 +22,6 @@
       <tags>
         <tag>python</tag>
         <tag>笔记</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[欢迎！]]></title>
-    <url>%2F2018%2F03%2F15%2FWelcome%2F</url>
-    <content type="text"><![CDATA[欢迎来到hjlone的博客！]]></content>
-      <tags>
-        <tag>test</tag>
       </tags>
   </entry>
 </search>

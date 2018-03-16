@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-03-16T09:11:49.220Z</updated>
+  <updated>2018-03-16T12:35:18.801Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,13 +17,39 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Termux搭建Hexo博客</title>
+    <link href="http://yoursite.com/2018/03/16/termux-hexo/"/>
+    <id>http://yoursite.com/2018/03/16/termux-hexo/</id>
+    <published>2018-03-16T10:55:15.000Z</published>
+    <updated>2018-03-16T12:35:18.801Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>Termux依赖Android5.0及更高版本，无需root。组合了强大的终端模拟和拓展Linux包收集支持。Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。本文将介绍如何使用Termux搭建Hexo博客。</p></blockquote><a id="more"></a><h2 id="安装Termux"><a href="#安装Termux" class="headerlink" title="安装Termux"></a>安装Termux</h2><p><a href="https://termux.com/" target="_blank" rel="noopener">Termux官网</a> </p><ul><li>在F-droid下载安装包即可</li><li>安装完成后执行（右滑长按KEYBOARD显示功能键）<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ apt update</span><br><span class="line">$ apt-get upgrade</span><br><span class="line">$ apt upgrade</span><br></pre></td></tr></table></figure></li></ul><h2 id="安装node-js、git、hexo"><a href="#安装node-js、git、hexo" class="headerlink" title="安装node.js、git、hexo"></a>安装node.js、git、hexo</h2><ul><li>执行以下命令<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ apt install nodejs</span><br><span class="line">$ apt install git</span><br><span class="line">$ npm install -g hexo-cli</span><br></pre></td></tr></table></figure></li></ul><h2 id="搭建博客"><a href="#搭建博客" class="headerlink" title="搭建博客"></a>搭建博客</h2><ul><li><p>执行以下命令初始化Hexo</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ hexo init &lt;folder&gt; # 在指定文件夹生成相关文件</span><br><span class="line">$ cd &lt;folder&gt;</span><br><span class="line">$ npm install</span><br></pre></td></tr></table></figure></li><li><p>指定文件夹目录如下图（命令 <code>$ ls</code> 查看文件夹目录）<br><img src="https://i.imgur.com/biwWoEn.png" alt=""></p></li><li>执行以下命令，然后在浏览器输入<code>localhost:4000</code>查看，若出现下图则说明成功了<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo g</span><br><span class="line">$ hexo s</span><br></pre></td></tr></table></figure></li></ul><p><img src="https://i.imgur.com/m9r9vjx.png" alt="Hexo默认主题"></p><h2 id="部署博客到Github"><a href="#部署博客到Github" class="headerlink" title="部署博客到Github"></a>部署博客到Github</h2><ul><li>在Github上新建项目，项目名称必须为 <code>用户名.github.io</code></li><li><p>返回Termux，修改配置文件_config.yml <code>$ vi _config.yml</code> ，拉到最下面，将#Deployment改成以下代码（<code>注意</code>每个冒号后面需加一个空格）</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">    repository: https://github.com/用户名/用户名.github.io.git # 将&apos;用户名&apos;改为你的Github用户名</span><br><span class="line">    branch: master</span><br></pre></td></tr></table></figure></li><li><p>安装插件 <code>$ npm install hexo-deployer-git --save</code></p></li><li>部署到Github <code>$ hexo d</code></li><li>在浏览器输入 <code>https://用户名.github.io</code> 即可访问你的博客</li></ul><h2 id="发表文章"><a href="#发表文章" class="headerlink" title="发表文章"></a>发表文章</h2><ul><li>使用命令 <code>$ hexo new &quot;name&quot;</code> 新建文章文件，文件会以<code>name.md</code>为名新建在blog/source/_posts/下</li><li>文章编辑完成后，执行以下命令发表<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo g</span><br><span class="line">$ hexo d</span><br></pre></td></tr></table></figure></li></ul><h2 id="更多"><a href="#更多" class="headerlink" title="更多"></a>更多</h2><ul><li><a href="https://hexo.io/zh-cn/docs/configuration.html" target="_blank" rel="noopener">Hexo更多配置可查看官方文档</a></li><li><a href="https://hexo.io/themes/" target="_blank" rel="noopener">主题</a></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;Termux依赖Android5.0及更高版本，无需root。组合了强大的终端模拟和拓展Linux包收集支持。Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。本文将介绍如何使用Termux搭建Hexo博客。&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="教程" scheme="http://yoursite.com/categories/%E6%95%99%E7%A8%8B/"/>
+    
+    
+      <category term="termux" scheme="http://yoursite.com/tags/termux/"/>
+    
+      <category term="hexo" scheme="http://yoursite.com/tags/hexo/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Python学习笔记(1)---GUI编程(wxPython)</title>
     <link href="http://yoursite.com/2018/03/15/python%E7%AC%94%E8%AE%B0/"/>
     <id>http://yoursite.com/2018/03/15/python笔记/</id>
     <published>2018-03-15T13:50:10.987Z</published>
-    <updated>2018-03-16T09:11:49.220Z</updated>
+    <updated>2018-03-16T11:43:49.827Z</updated>
     
-    <content type="html"><![CDATA[<blockquote><p>wxPython是Python的的GUI图形库，允许开发者很方便的创建GUI用户界面。wxPython是作为优秀的跨平台开源GUI库wxWidgets（C++）的Python封装和Python模块的方式提供给用户的。</p></blockquote><a id="more"></a><p>安装wxPython库 <code>$ pip install -U wxPython</code></p><h3 id="创建一个GUI应用"><a href="#创建一个GUI应用" class="headerlink" title="创建一个GUI应用"></a>创建一个GUI应用</h3><ol><li>导入wx模块</li><li>定义一个应用程序对象</li><li>创建wx.Frame主窗口对象，设置窗口标题和大小</li><li>加入Panel对象管理控件布局</li><li>添加一个SaticText静态文本对象，在指定位置显示”Hello,world!”</li><li>通过Frame的show()方法显示窗体</li><li>进入应用程序事件主循环</li></ol><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding:utf-8 -*-</span></span><br><span class="line"><span class="keyword">import</span> wx</span><br><span class="line"></span><br><span class="line">app = wx.App()</span><br><span class="line">window = wx.Frame(<span class="keyword">None</span>, title = <span class="string">"一个APP"</span>, size = (<span class="number">300</span>, <span class="number">200</span>))</span><br><span class="line">panel = wx.Panel(window)</span><br><span class="line">label = wx.StaticText(panel, label = <span class="string">"Hello, world!"</span>, pos = (<span class="number">100</span>, <span class="number">50</span>))</span><br><span class="line">window.Show(<span class="keyword">True</span>)</span><br><span class="line">app.MainLoop()</span><br></pre></td></tr></table></figure><p><img src="https://i.imgur.com/FCwkgMO.png" alt=""></p>]]></content>
+    <content type="html"><![CDATA[<blockquote><p>wxPython是Python的的GUI图形库，允许开发者很方便的创建GUI用户界面。wxPython是作为优秀的跨平台开源GUI库wxWidgets（C++）的Python封装和Python模块的方式提供给用户的。</p></blockquote><a id="more"></a><p>安装wxPython库 <code>$ pip install -U wxPython</code></p><h2 id="创建一个GUI应用"><a href="#创建一个GUI应用" class="headerlink" title="创建一个GUI应用"></a>创建一个GUI应用</h2><ol><li>导入wx模块</li><li>定义一个应用程序对象</li><li>创建wx.Frame主窗口对象，设置窗口标题和大小</li><li>加入Panel对象管理控件布局</li><li>添加一个SaticText静态文本对象，在指定位置显示”Hello,world!”</li><li>通过Frame的show()方法显示窗体</li><li>进入应用程序事件主循环</li></ol><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding:utf-8 -*-</span></span><br><span class="line"><span class="keyword">import</span> wx</span><br><span class="line"></span><br><span class="line">app = wx.App()</span><br><span class="line">window = wx.Frame(<span class="keyword">None</span>, title = <span class="string">"一个APP"</span>, size = (<span class="number">300</span>, <span class="number">200</span>))</span><br><span class="line">panel = wx.Panel(window)</span><br><span class="line">label = wx.StaticText(panel, label = <span class="string">"Hello, world!"</span>, pos = (<span class="number">100</span>, <span class="number">50</span>))</span><br><span class="line">window.Show(<span class="keyword">True</span>)</span><br><span class="line">app.MainLoop()</span><br></pre></td></tr></table></figure><p><img src="https://i.imgur.com/FCwkgMO.png" alt=""></p>]]></content>
     
     <summary type="html">
     
@@ -39,30 +65,6 @@
       <category term="python" scheme="http://yoursite.com/tags/python/"/>
     
       <category term="笔记" scheme="http://yoursite.com/tags/%E7%AC%94%E8%AE%B0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>欢迎！</title>
-    <link href="http://yoursite.com/2018/03/15/Welcome/"/>
-    <id>http://yoursite.com/2018/03/15/Welcome/</id>
-    <published>2018-03-15T11:35:23.610Z</published>
-    <updated>2018-03-15T10:07:34.000Z</updated>
-    
-    <content type="html"><![CDATA[<a id="more"></a><h1 id="欢迎来到hjlone的博客！"><a href="#欢迎来到hjlone的博客！" class="headerlink" title="欢迎来到hjlone的博客！"></a>欢迎来到hjlone的博客！</h1>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;h1 id=&quot;欢迎来到hjlone的博客！&quot;&gt;&lt;a href=&quot;#欢迎来到hjlone的博客！&quot; class=&quot;headerlink&quot; title=&quot;欢迎来到hjlone的博客！&quot;&gt;&lt;/a&gt;欢迎来到hjlone的博客！&lt;/h1&gt;
-      
-    
-    </summary>
-    
-    
-      <category term="test" scheme="http://yoursite.com/tags/test/"/>
     
   </entry>
   
