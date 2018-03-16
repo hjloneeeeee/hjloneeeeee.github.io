@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>hjlone的博客</title>
+  
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://yoursite.com/"/>
+  <updated>2018-03-16T09:11:49.220Z</updated>
+  <id>http://yoursite.com/</id>
+  
+  <author>
+    <name>黄家亮</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Python学习笔记(1)---GUI编程(wxPython)</title>
+    <link href="http://yoursite.com/2018/03/15/python%E7%AC%94%E8%AE%B0/"/>
+    <id>http://yoursite.com/2018/03/15/python笔记/</id>
+    <published>2018-03-15T13:50:10.987Z</published>
+    <updated>2018-03-16T09:11:49.220Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>wxPython是Python的的GUI图形库，允许开发者很方便的创建GUI用户界面。wxPython是作为优秀的跨平台开源GUI库wxWidgets（C++）的Python封装和Python模块的方式提供给用户的。</p></blockquote><a id="more"></a><p>安装wxPython库 <code>$ pip install -U wxPython</code></p><h3 id="创建一个GUI应用"><a href="#创建一个GUI应用" class="headerlink" title="创建一个GUI应用"></a>创建一个GUI应用</h3><ol><li>导入wx模块</li><li>定义一个应用程序对象</li><li>创建wx.Frame主窗口对象，设置窗口标题和大小</li><li>加入Panel对象管理控件布局</li><li>添加一个SaticText静态文本对象，在指定位置显示”Hello,world!”</li><li>通过Frame的show()方法显示窗体</li><li>进入应用程序事件主循环</li></ol><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding:utf-8 -*-</span></span><br><span class="line"><span class="keyword">import</span> wx</span><br><span class="line"></span><br><span class="line">app = wx.App()</span><br><span class="line">window = wx.Frame(<span class="keyword">None</span>, title = <span class="string">"一个APP"</span>, size = (<span class="number">300</span>, <span class="number">200</span>))</span><br><span class="line">panel = wx.Panel(window)</span><br><span class="line">label = wx.StaticText(panel, label = <span class="string">"Hello, world!"</span>, pos = (<span class="number">100</span>, <span class="number">50</span>))</span><br><span class="line">window.Show(<span class="keyword">True</span>)</span><br><span class="line">app.MainLoop()</span><br></pre></td></tr></table></figure><p><img src="https://i.imgur.com/FCwkgMO.png" alt=""></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;wxPython是Python的的GUI图形库，允许开发者很方便的创建GUI用户界面。wxPython是作为优秀的跨平台开源GUI库wxWidgets（C++）的Python封装和Python模块的方式提供给用户的。&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="学习" scheme="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="python" scheme="http://yoursite.com/tags/python/"/>
+    
+      <category term="笔记" scheme="http://yoursite.com/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>欢迎！</title>
+    <link href="http://yoursite.com/2018/03/15/Welcome/"/>
+    <id>http://yoursite.com/2018/03/15/Welcome/</id>
+    <published>2018-03-15T11:35:23.610Z</published>
+    <updated>2018-03-15T10:07:34.000Z</updated>
+    
+    <content type="html"><![CDATA[<a id="more"></a><h1 id="欢迎来到hjlone的博客！"><a href="#欢迎来到hjlone的博客！" class="headerlink" title="欢迎来到hjlone的博客！"></a>欢迎来到hjlone的博客！</h1>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h1 id=&quot;欢迎来到hjlone的博客！&quot;&gt;&lt;a href=&quot;#欢迎来到hjlone的博客！&quot; class=&quot;headerlink&quot; title=&quot;欢迎来到hjlone的博客！&quot;&gt;&lt;/a&gt;欢迎来到hjlone的博客！&lt;/h1&gt;
+      
+    
+    </summary>
+    
+    
+      <category term="test" scheme="http://yoursite.com/tags/test/"/>
+    
+  </entry>
+  
+</feed>
